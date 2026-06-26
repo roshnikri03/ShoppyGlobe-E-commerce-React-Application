@@ -1,0 +1,230 @@
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  transition: var(--transition-smooth);
+}
+
+.header-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  letter-spacing: -0.5px;
+}
+
+.logo-icon {
+  font-size: 1.6rem;
+}
+
+.logo-text {
+  background: linear-gradient(135deg, var(--accent-color) 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Search Bar */
+.search-bar-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 450px;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.header-search-input {
+  width: 100%;
+  padding: 0.65rem 2.5rem 0.65rem 2.5rem;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-tertiary);
+  color: var(--text-main);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.header-search-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background-color: var(--bg-secondary);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition-fast);
+}
+
+.clear-search-btn:hover {
+  background-color: var(--border-color);
+  color: var(--text-main);
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0.5rem 0.25rem;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--text-main);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: var(--transition-smooth);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.nav-link.active {
+  color: var(--accent-color);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Cart Button & Badge */
+.cart-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--bg-tertiary);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-smooth);
+}
+
+.cart-btn:hover {
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+.cart-svg-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--danger);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid var(--bg-secondary);
+}
+
+.pulse-badge {
+  animation: pulse 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .site-header {
+    height: auto;
+    padding: 0.8rem 0;
+  }
+  .header-container {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 0 1rem;
+  }
+  .search-bar-wrapper {
+    order: 3;
+    max-width: 100%;
+    width: 100%;
+  }
+  .logo {
+    font-size: 1.3rem;
+  }
+  .nav-menu {
+    gap: 1rem;
+  }
+  .nav-link {
+    font-size: 0.85rem;
+  }
+  .cart-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .cart-svg-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
